@@ -15,6 +15,10 @@ namespace Lab_8
         }
         public override string ToString()
         {
+            if(output == null)
+            {
+                return "";
+            }
             return output.ToString();
         }
         public override void Review()

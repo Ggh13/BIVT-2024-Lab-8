@@ -23,8 +23,13 @@ namespace Lab_8
 
         public override string ToString()
         {
+            
             var output = Output;
-            return string.Join(Environment.NewLine, output.Select(x => $"{x.letter} - {x.percentage}"));
+            if (output == null)
+            {
+                return "";
+            }
+            return string.Join(Environment.NewLine, output.Select(x => $"{x.letter} - {Math.Round(x.percentage, 4) }"));
         }
 
 

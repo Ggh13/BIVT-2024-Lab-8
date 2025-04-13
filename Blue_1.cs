@@ -47,6 +47,8 @@ namespace Lab_8
                     {
                         Array.Resize(ref newRes, newRes.Length + 1);
                         newRes[newRes.Length - 1] = lastSave;
+                       // Console.Write("curSave: ");
+                        //Console.WriteLine(curSave);
                         curSave = curSave.Substring(lastSave.Length, curSave.Length - lastSave.Length); 
                         lastSave = "";
                     }
@@ -58,7 +60,8 @@ namespace Lab_8
                 
 
             }
-            
+            Array.Resize(ref newRes, newRes.Length + 1);
+            newRes[newRes.Length - 1] = curSave;
             output = newRes;
             //ToString();
 
@@ -66,7 +69,7 @@ namespace Lab_8
 
         public override string ToString()
         {
-            if (output == null) return null ;
+            if (output == null) return "" ;
             string result = "";
             for(int i = 0; i < output.Length; i++)
             {

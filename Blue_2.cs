@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,13 @@ namespace Lab_8
     {
         private string output;
 
-        public string Output => output;
+        public string Output{
+        get{
+                if (output == null) return null; 
+
+                return output; 
+            }
+        } 
         private string abc;
         public Blue_2(string input, string abc) : base(input)
         {
@@ -21,6 +28,7 @@ namespace Lab_8
         {
             string[] workto = Input.Split(' ');
             string[] res = new string[0];
+            string znPlus = "";
             for (int i = 0; i < workto.Length; i++)
             {
                // Console.Write(workto[i].ToLower());
@@ -28,6 +36,12 @@ namespace Lab_8
                // Console.WriteLine(workto[i].ToLower().IndexOf(abc));
                 if (workto[i].ToLower().IndexOf(abc) != -1)
                 {
+                    if (Array.IndexOf(zhnaki, workto[i][0]) != -1)
+                    {
+                        znPlus = workto[i][0].ToString();
+                    }
+
+
                     if (Array.IndexOf(zhnaki, workto[i][workto[i].Length - 1] ) != -1)
                     {
                         res[res.Length - 1] = res[res.Length - 1] + workto[i][workto[i].Length - 1];
@@ -38,7 +52,8 @@ namespace Lab_8
                 else
                 {
                     Array.Resize(ref res, res.Length + 1);
-                    res[res.Length - 1] = workto[i];
+                    res[res.Length - 1] = znPlus + workto[i];
+                    znPlus = "";
                 }
                 
             }
@@ -59,6 +74,10 @@ namespace Lab_8
 
         public override string ToString()
         {
+            if (output == null)
+            {
+                return "";
+            }
             return output;
         }
     }
