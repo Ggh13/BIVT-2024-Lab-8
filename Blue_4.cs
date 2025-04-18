@@ -15,7 +15,7 @@ namespace Lab_8
         }
         public override string ToString()
         {
-            if(output == null)
+            if(output == null || output == 0)
             {
                 return "";
             }
@@ -23,6 +23,7 @@ namespace Lab_8
         }
         public override void Review()
         {
+
             if (Input == null) return;
             int sum = 0;
             int currentNumber = 0;

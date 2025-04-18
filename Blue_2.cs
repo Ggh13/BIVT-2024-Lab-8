@@ -26,6 +26,7 @@ namespace Lab_8
 
         public override void Review()
         {
+            if (string.IsNullOrWhiteSpace(Input)) return;
             string[] workto = Input.Split(' ');
             string[] res = new string[0];
             string znPlus = "";
@@ -74,10 +75,7 @@ namespace Lab_8
 
         public override string ToString()
         {
-            if (output == null)
-            {
-                return "";
-            }
+            if (string.IsNullOrWhiteSpace(output)) return "";
             return output;
         }
     }

@@ -27,45 +27,38 @@ namespace Lab_8
 
         public override void Review()
         {
-            if (Input == null) return;
-            int n = 0;
-            string lastSave = "";
-            string curSave = "";
-            string[] newRes = new string[0];
-            
-            for (int i = 0; i < Input.Length; i++)
+            if (string.IsNullOrWhiteSpace(Input)) return;
+            var words = Input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var result = new List<string>();
+
+            if (words.Count == 0)
             {
-                //Console.WriteLine(Input[i]);
-                if (Input[i] == ' ')
+                output = result.ToArray();
+                return;
+            }
+
+            string currentLine = words[0];
+            foreach (var word in words.Skip(1))
+            {
+                int possibleLength = currentLine.Length + 1 + word.Length;
+                if (possibleLength <= 50)
                 {
-                    curSave += ' ';
-                    if (curSave.Length < 50)
-                    {
-                        lastSave = curSave;
-                    }
-                    else
-                    {
-                        Array.Resize(ref newRes, newRes.Length + 1);
-                        newRes[newRes.Length - 1] = lastSave;
-                       // Console.Write("curSave: ");
-                        //Console.WriteLine(curSave);
-                        curSave = curSave.Substring(lastSave.Length, curSave.Length - lastSave.Length); 
-                        lastSave = "";
-                    }
+                    currentLine += " " + word;
                 }
                 else
                 {
-                    curSave += Input[i];
+                    result.Add(currentLine);
+                    currentLine = word;
                 }
-                
-
             }
-            Array.Resize(ref newRes, newRes.Length + 1);
-            newRes[newRes.Length - 1] = curSave;
-            output = newRes;
-            //ToString();
 
+            result.Add(currentLine);
+            output = result.ToArray();
         }
+    
+
+
+
 
         public override string ToString()
         {

@@ -12,7 +12,7 @@ namespace Lab_8
         private readonly string input;
         public string Input => input;
 
-        public string alphabet = "qwertyuiopasdfghjklzxcvbnmйцукенгшщзхъфывапролджэячсмитьбю";
+        public string alphabet = "qwertyuioplkjhgfdsazxcvbnmйцукенгшщзхъэждлорпавыфячсмитьбю";
         public char[] zhnaki = { '.', '!', '?', ',', ':', '\"', ';', '–', '(', ')', '[', ']', '{', '}', '/'};
         public Blue(string input)
         {
@@ -20,5 +20,7 @@ namespace Lab_8
         }
 
         public abstract void Review();
+
+
     }
 }

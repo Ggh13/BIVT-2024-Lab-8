@@ -35,8 +35,8 @@ namespace Lab_8
 
         public override void Review()
         {
-
-            var words = Input.Split(new[] { ' '}, StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrWhiteSpace(Input)) return;
+            var words = Input.Split(new[] { ' ', '.', '!', '?', ',', ':', '\"', ';', '–', '(', ')', '[', ']', '{', '}', '/' }, StringSplitOptions.RemoveEmptyEntries);
             if (words.Length == 0)
                 return;
 
@@ -44,7 +44,7 @@ namespace Lab_8
 
             foreach (var word in words)
             {
-                if (word == null)
+                if (word == null || word == "")
                     continue;
 
                 char firstChar = char.ToLower(word[0]);
