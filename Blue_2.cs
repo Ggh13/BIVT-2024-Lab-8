@@ -37,23 +37,32 @@ namespace Lab_8
                // Console.WriteLine(workto[i].ToLower().IndexOf(abc));
                 if (workto[i].ToLower().IndexOf(abc) != -1)
                 {
+                    string sl = "";
                     if (Array.IndexOf(zhnaki, workto[i][0]) != -1)
                     {
-                        znPlus = workto[i][0].ToString();
+                        //res[res.Length - 1] = res[res.Length - 1] + workto[i][workto[i].Length - 1];
+                        sl += workto[i][0].ToString();
                     }
 
 
                     if (Array.IndexOf(zhnaki, workto[i][workto[i].Length - 1] ) != -1)
                     {
-                        res[res.Length - 1] = res[res.Length - 1] + workto[i][workto[i].Length - 1];
+                        if (workto[i].Length >= 2 && Array.IndexOf(zhnaki, workto[i][workto[i].Length - 2]) != -1)
+                        {
+                            sl +=  workto[i][workto[i].Length - 2];
+                        }
+
+                        sl +=  workto[i][workto[i].Length - 1];
                     }
                     //Console.WriteLine(workto[i].IndexOf(abc));
+                    Array.Resize(ref res, res.Length + 1);
+                    res[res.Length - 1] =  sl;
 
                 }
                 else
                 {
                     Array.Resize(ref res, res.Length + 1);
-                    res[res.Length - 1] = znPlus + workto[i];
+                    res[res.Length - 1] =  workto[i];
                     znPlus = "";
                 }
                 

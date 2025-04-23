@@ -29,7 +29,7 @@ namespace Lab_8
             {
                 return "";
             }
-            return string.Join(Environment.NewLine, output.Select(x => $"{x.letter} - {Math.Round(x.percentage, 4) }"));
+            return string.Join(Environment.NewLine, output.Select(x => $"{x.letter} - {(Math.Round(x.percentage, 4)).ToString("0.0000") }"));
         }
 
 

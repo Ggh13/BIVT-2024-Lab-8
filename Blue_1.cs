@@ -27,7 +27,7 @@ namespace Lab_8
 
         public override void Review()
         {
-            if (string.IsNullOrWhiteSpace(Input)) return;
+            if (Input == null || string.IsNullOrWhiteSpace(Input)) return;
             var words = Input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             var result = new List<string>();
 
