@@ -27,7 +27,12 @@ namespace Lab_8
 
         public override void Review()
         {
-            if (Input == null || string.IsNullOrWhiteSpace(Input)) return;
+            if (Input == null || string.IsNullOrEmpty(Input))
+            {
+                output = null;
+                return;
+
+            }
             var words = Input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             var result = new List<string>();
 
@@ -62,7 +67,7 @@ namespace Lab_8
 
         public override string ToString()
         {
-            if (output == null) return "" ;
+            if (output == null || output.Length == 0) return "" ;
             string result = "";
             for(int i = 0; i < output.Length; i++)
             {

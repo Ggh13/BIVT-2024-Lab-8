@@ -8,10 +8,11 @@ namespace Lab_8
 {
     public class Blue_4 : Blue
     {
-        public int output = 0;
+        public int output;
         public int Output => output;
         public Blue_4(string input) : base(input)
         {
+            output = 0;
         }
         public override string ToString()
         {
@@ -21,7 +22,7 @@ namespace Lab_8
         public override void Review()
         {
 
-            if (Input == null) return;
+            if (string.IsNullOrEmpty(Input)) return;
             int sum = 0;
             int currentNumber = 0;
             bool isNegative = false;

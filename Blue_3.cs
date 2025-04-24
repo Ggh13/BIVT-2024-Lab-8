@@ -16,7 +16,7 @@ namespace Lab_8
 
         public Blue_3(string text): base(text)
         {
-            
+            output = null;
         }
 
         public (char letter, double percentage)[] Output => output;
@@ -35,7 +35,7 @@ namespace Lab_8
 
         public override void Review()
         {
-            if (string.IsNullOrWhiteSpace(Input)) return;
+            if (string.IsNullOrEmpty(Input)) return;
             var words = Input.Split(new[] { ' ', '.', '!', '?', ',', ':', '\"', ';', '–', '(', ')', '[', ']', '{', '}', '/' }, StringSplitOptions.RemoveEmptyEntries);
             if (words.Length == 0)
                 return;

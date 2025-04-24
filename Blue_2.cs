@@ -21,6 +21,7 @@ namespace Lab_8
         private string abc;
         public Blue_2(string input, string abc) : base(input)
         {
+            output = null;
             this.abc = abc;
         }
 
@@ -70,6 +71,10 @@ namespace Lab_8
             output = "";
             for (int i = 0; i < res.Length; i++)
             {
+                if(res[i] == "")
+                {
+                    continue;
+                }
                 if(i != res.Length-1)
                 {
                     output += res[i] + ' ';
