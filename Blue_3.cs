@@ -12,7 +12,6 @@ namespace Lab_8
     {
 
         private (char letter, double percentage)[] output;
-        private readonly string _text;
 
         public Blue_3(string text): base(text)
         {
@@ -27,7 +26,7 @@ namespace Lab_8
             var output = Output;
             if (output == null)
             {
-                return "";
+                return null;
             }
             return string.Join(Environment.NewLine, output.Select(x => $"{x.letter} - {(Math.Round(x.percentage, 4)).ToString("0.0000") }"));
         }

@@ -27,7 +27,7 @@ namespace Lab_8
 
         public override void Review()
         {
-            if (string.IsNullOrWhiteSpace(Input)) return;
+            if (string.IsNullOrEmpty(Input)) return;
             string[] workto = Input.Split(' ');
             string[] res = new string[0];
             string znPlus = "";
@@ -39,6 +39,7 @@ namespace Lab_8
                 if (workto[i].ToLower().IndexOf(abc) != -1)
                 {
                     string sl = "";
+
                     if (Array.IndexOf(zhnaki, workto[i][0]) != -1)
                     {
                         //res[res.Length - 1] = res[res.Length - 1] + workto[i][workto[i].Length - 1];
@@ -56,8 +57,15 @@ namespace Lab_8
                         sl +=  workto[i][workto[i].Length - 1];
                     }
                     //Console.WriteLine(workto[i].IndexOf(abc));
-                    Array.Resize(ref res, res.Length + 1);
-                    res[res.Length - 1] =  sl;
+                    if ((sl == "." || sl == ","))
+                    {
+                        res[res.Length - 1] +=  sl;
+                    }
+                    else
+                    {
+                        Array.Resize(ref res, res.Length + 1);
+                        res[res.Length - 1] =  sl;
+                    }
 
                 }
                 else
@@ -89,7 +97,7 @@ namespace Lab_8
 
         public override string ToString()
         {
-            if (string.IsNullOrWhiteSpace(output)) return "";
+            if (string.IsNullOrEmpty(output)) return null;
             return output;
         }
     }

@@ -9,19 +9,12 @@ namespace Lab_8
 {
     public class Blue_1 : Blue
     {
-        string[] output;
-        public string[] Output
-        {
-            get
-            {
-                if(output == null) return null;
-                return output;
-            }
-        }
+        private string[] output;
+        public string[] Output => output;
 
         public Blue_1(string input) : base(input)
         {
-            output = new string[0];
+            output = null;
         }
 
 
@@ -33,6 +26,7 @@ namespace Lab_8
                 return;
 
             }
+            
             var words = Input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             var result = new List<string>();
 
@@ -67,7 +61,7 @@ namespace Lab_8
 
         public override string ToString()
         {
-            if (output == null || output.Length == 0) return "" ;
+            if (output == null || output.Length == 0) return null ;
             string result = "";
             for(int i = 0; i < output.Length; i++)
             {

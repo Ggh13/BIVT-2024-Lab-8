@@ -8,7 +8,7 @@ namespace Lab_8
 {
     public class Blue_4 : Blue
     {
-        public int output;
+        private int output;
         public int Output => output;
         public Blue_4(string input) : base(input)
         {
@@ -16,7 +16,6 @@ namespace Lab_8
         }
         public override string ToString()
         {
-            
             return output.ToString();
         }
         public override void Review()
